@@ -60,6 +60,21 @@ button.p{background:var(--g);color:#fff;border-color:var(--g)}
  #rep th{background:#eee!important;-webkit-print-color-adjust:exact;print-color-adjust:exact;font-weight:700}
  #rep td.l{text-align:left;min-width:0}
  #rep .box{border:1px solid #000;min-height:34px;padding:4px 6px;margin:3px 0 8px;white-space:pre-wrap}
+ #rep .bar{background:#e4ebc8!important;-webkit-print-color-adjust:exact;print-color-adjust:exact;text-align:center;font-weight:700;text-decoration:underline;padding:6px 8px;margin:12px 0 10px}
+ #rep .sb{border:1px solid #000;border-radius:10px;text-align:center;padding:4px 8px;margin:8px 0 10px}
+ #rep .ln{margin:7px 0}
+ #rep .ul{text-decoration:underline}
+ #rep .fl{display:inline-block;border-bottom:1px dotted #000;text-align:center;padding:0 4px;min-height:1.2em;vertical-align:bottom}
+ #rep .sp{display:block}
+ #rep table.g td.l{width:20%}
+ #rep table.u5 th{padding:8px 4px}
+ #rep table.u5 tr.t1 td{height:48px}
+ #rep table.u5 tr.t2 td{height:32px}
+ #rep table.u5 td.l{text-align:left}
+ #rep tr.tl td{height:26px}
+ #rep .sg{width:190px;margin:34px 20px 0 auto;text-align:center;line-height:1.5}
+ #rep .memo{display:flex;justify-content:space-between;margin-top:28px}
+ #rep .sl{margin:4px 0}
  #rep .sig{margin-top:46px;text-align:right}
 }
 </style>
@@ -86,6 +101,11 @@ button.p{background:var(--g);color:#fff;border-color:var(--g)}
 <div class="card"><h2>সেকশন ১০: গত কিস্তির চাহিদা ও বিতরণ</h2><div class="wrap" id="g10"></div></div>
 <div class="card"><h2>সেকশন ১১: উপবৃত্তি না পাওয়ার কারণ</h2><p class="hint">ধূসর ঘরগুলো (পুনরাবৃত্ত, ৪০% নম্বর, ২+ সন্তান, এন্ট্রি করতে পারেনি) সেকশন ৮ থেকে স্বয়ংক্রিয়। বাকি চারটি ঘর (৮০% উপস্থিতি, মোবাইল নম্বর ভুল, নম্বর পরিবর্তন/হ্যাক, অন্যান্য) আপনি লিখবেন; এ চারটির যোগফল সেকশন ১০-এর “উপবৃত্তি পায়নি”-র সমান হতে হবে। সবাই পেলে সব ঘর ০।</p><div class="vlist" id="g11"></div></div>
 <div class="card"><h2>সেকশন ১২: গত ৩ অর্থবছরের উপবৃত্তি</h2><p class="hint">জনপ্রতি ৬ মাসের (এক কিস্তির) সর্বোচ্চ উপবৃত্তি ৯০০ টাকা; কম হতে পারে, বেশি নয়। বছরের মোট ও সর্বোচ্চ সম্ভাব্য টাকা স্বয়ংক্রিয়। ২০২৫-২৬ এর ২য় কিস্তির প্রাপ্ত জন সেকশন ১০-এর “উপবৃত্তি প্রাপ্ত” মোটের সমান হবে।</p><div class="wrap" id="g12"></div></div>
+<div class="card"><h2>প্রিন্টের শেষ পৃষ্ঠার তথ্য</h2><p class="hint">স্মারক নং, তারিখ ও “সদয় অবগতি/কার্যার্থে” তালিকা ডিফল্ট দেওয়া আছে; প্রয়োজনে বদলাতে পারবেন। তালিকার প্রতিটি লাইন আলাদা ক্রমিক নম্বরসহ ছাপা হবে।</p>
+<div class="row2"><label>স্মারক নং-<br><input id="memo" size="22"></label><label>তারিখ<br><input id="mdate" size="14" placeholder="ফাঁকা থাকলে হাতে লিখবেন"></label></div>
+<label style="margin-top:8px">তালিকার শিরোনাম<br><input id="sendh" style="width:100%"></label>
+<label style="margin-top:8px">প্রেরণের তালিকা (প্রতি লাইনে একটি)<br><textarea id="sendl" rows="5" style="width:100%"></textarea></label>
+<p style="margin:8px 0 0"><button id="memoreset" type="button">ডিফল্টে ফিরুন</button></p></div>
 <footer class="card" style="text-align:center;line-height:1.8"><div style="color:var(--mut);font-size:13px">Developed By</div><div style="font-weight:700;color:var(--g)">মোঃ ইমতিয়াজ আহম্মদ</div><div>সহকারী শিক্ষক, দোঘর সপ্রাবি, কচুয়া, চাঁদপুর।</div><div>মোবাইলঃ 01851245934</div><div style="margin-top:10px;padding:8px 12px;border-radius:10px;background:var(--warnbg);color:var(--warn);border-left:4px solid var(--warn);font-size:14px;text-align:left">টিন আইডি খোলা থাকলে অবশ্যই প্রতি অর্থবছরের আয়কর রিটার্ন জমা দেয়া বাধ্যতামূলক। অন্যথায় ৫০০০ টাকা জরিমানা প্রদান করতে হবে। বিস্তারিত জানতে উপরের নম্বরে whatsApp করুন। ( পেইড সার্ভিস)</div></footer>
 </main>
 <section id="rep"></section>
@@ -238,26 +258,42 @@ function prUI(ne,any){const b=$('prbtn'),m=$('prmsg'),R=prReasons();
 function repHtml(){
   const v=k=>{const x=D[k];return def(x)?bn(x.toLocaleString('en-IN')):''};
   const tot=r=>{const x=sum(CLS.map(([c])=>g(r+'.'+c)));return def(x)?bn(x.toLocaleString('en-IN')):''};
-  const th=CLS.map(c=>'<th>'+c[1]+'</th>').join('');
-  const grid=rows=>'<table><thead><tr><th class="l">বিবরণ</th>'+th+'<th>সর্বমোট</th></tr></thead><tbody>'+rows.map(([r,t,x])=>'<tr><td class="l">'+t+'</td>'+CLS.map(([c])=>x&&x.includes(c)?'<td>×</td>':'<td>'+v(r+'.'+c)+'</td>').join('')+'<td>'+tot(r)+'</td></tr>').join('')+'</tbody></table>';
+  const CH=CLS.map(c=>c[1].startsWith('প্রাক')?c[1]:c[1]+' শ্রেণি').concat(['৬ষ্ঠ শ্রেণি','৭ম শ্রেণি','৮ম শ্রেণি']);
+  const grid=rows=>'<table class="g"><thead><tr><th class="l">বিবরণ</th>'+CH.map(t=>'<th>'+t+'</th>').join('')+'<th>সর্বমোট</th></tr></thead><tbody>'+rows.map(([r,t,x])=>'<tr><td class="l">'+t+'</td>'+CLS.map(([c])=>x&&x.includes(c)?'<td>×</td>':'<td>'+v(r+'.'+c)+'</td>').join('')+'<td></td><td></td><td></td><td>'+tot(r)+'</td></tr>').join('')+'</tbody></table>';
   const row=(items,pre,total)=>'<table><thead><tr>'+items.map(t=>'<th>'+t+'</th>').join('')+'<th>মোট</th></tr></thead><tbody><tr>'+items.map((t,i)=>'<td>'+v(pre+(i+1))+'</td>').join('')+'<td>'+v(total)+'</td></tr></tbody></table>';
   const R8=[['r1','মোট শিক্ষার্থী (নতুন ভর্তিকৃতসহ)'],['r2','শুধুমাত্র নতুন ভর্তিকৃত শিক্ষার্থী'],['r3','PESP MIS সফটওয়্যারে নতুন এন্ট্রিকৃত শিক্ষার্থী'],['r4','PESP MIS সফটওয়্যারে শ্রেণি হালনাগাদকৃত শিক্ষার্থী'],['r5','PESP MIS সফটওয়্যারে মোট শিক্ষার্থী (নতুন এন্ট্রি ও হালনাগাদ)'],['r6','PESP MIS সফটওয়্যারে এন্ট্রি না হওয়া শিক্ষার্থী'],['r7','পুনরাবৃত্ত শিক্ষার্থী',['p4','p5']],['r8','গত বার্ষিক পরীক্ষায় প্রতি বিষয়ে ৪০% নম্বর না পাওয়া শিক্ষার্থী',['p4','p5','c1']],['r9','একই পরিবারের ২ এর অধিক সন্তান']];
   const Q=['অনলাইন জন্ম নিবন্ধন না থাকা','মা/বাবা/উভয়ের এনআইডি না থাকা','অভিভাবকের নিজ এনআইডি দিয়ে সিম রেজিস্ট্রেশন না থাকা','অভিভাবকের নিজ এনআইডি দিয়ে নিবন্ধিত এমএফএস একাউন্ট না থাকা','জন্ম নিবন্ধন থাকা সত্ত্বেও সফটওয়্যারে এন্ট্রি না হওয়া','অন্যান্য কারণ'];
   const R10=[['t1','গত কিস্তিতে অনুমোদিত চাহিদা'],['t2','গত কিস্তিতে উপবৃত্তি প্রাপ্ত শিক্ষার্থী'],['t3','গত কিস্তিতে উপবৃত্তি না পাওয়া শিক্ষার্থী']];
-  const U=['পুনরাবৃত্ত','গত বার্ষিক পরীক্ষায় প্রতি বিষয়ে ৪০% নম্বর না পাওয়া','মাসিক পাঠ দিবসের ৮০% উপস্থিতি না থাকা','একই পরিবারের ২ এর অধিক সন্তান','সফটওয়্যারে ডাটা এন্ট্রি করতে না পারা','মোবাইল একাউন্ট নম্বর সঠিক/সক্রিয় না থাকা','একাউন্ট নম্বর পরিবর্তন/হ্যাক হওয়া','অন্যান্য'];
-  const s12='<table><thead><tr><th rowspan="2">অর্থবছর</th><th colspan="2">১ম কিস্তি (জুলাই-ডিসেম্বর)</th><th colspan="2">২য় কিস্তি (জানুয়ারি-জুন)</th><th rowspan="2">অর্থবছরে বিতরণকৃত মোট টাকা</th></tr><tr><th>উপবৃত্তি প্রাপ্ত শিক্ষার্থী</th><th>টাকার পরিমাণ</th><th>উপবৃত্তি প্রাপ্ত শিক্ষার্থী</th><th>টাকার পরিমাণ</th></tr></thead><tbody>'+FYS.map(([f,l])=>'<tr><td>'+l+'</td><td>'+v(f+'.i1s')+'</td><td>'+v(f+'.i1a')+'</td><td>'+v(f+'.i2s')+'</td><td>'+v(f+'.i2a')+'</td><td>'+v(f+'.tot')+'</td></tr>').join('')+'</tbody></table>';
-  const t=new Date(),ds=bn(String(t.getDate()).padStart(2,'0')+'/'+String(t.getMonth()+1).padStart(2,'0')+'/'+t.getFullYear());
+  const U=['পুনরাবৃত্ত','গত বার্ষিক পরীক্ষায় প্রতি বিষয়ে ৪০% নম্বর না পাওয়া','মাসিক পাঠ দিবসের ৮০% উপস্থিতি না থাকা','একই পরিবারের ২ এর অধিক সন্তান','সফটওয়্যারে ডাটা এন্ট্রি করতে না পারা','মোবাইল একাউন্ট নম্বর সঠিক/সক্রিয় না থাকা','একাউন্ট নম্বর পরিবর্তন/হ্যাক হওয়া (প্রমাণক/ তালিকা যুক্ত করুন)','অন্যান্য'];
+  const s12='<table><thead><tr><th rowspan="2">অর্থবছর</th><th colspan="2">১ম কিস্তি (জুলাই-ডিসেম্বর)</th><th colspan="2">২য় কিস্তি (জানুয়ারি-জুন)</th><th rowspan="2">অর্থবছরে বিতরণকৃত মোট টাকা</th></tr><tr><th>উপবৃত্তি প্রাপ্ত শিক্ষার্থী</th><th>টাকার পরিমাণ</th><th>উপবৃত্তি প্রাপ্ত শিক্ষার্থী</th><th>টাকার পরিমাণ</th></tr></thead><tbody>'+FYS.map(([f,l])=>'<tr class="tl"><td>'+l+'</td><td>'+v(f+'.i1s')+'</td><td>'+v(f+'.i1a')+'</td><td>'+v(f+'.i2s')+'</td><td>'+v(f+'.i2a')+'</td><td>'+v(f+'.tot')+'</td></tr>').join('')+'</tbody></table>';
   const q=(n,x)=>'<div class="rq">'+n+' '+x+'</div>';
-  return '<div class="pg"><div class="rhd"><div>গণপ্রজাতন্ত্রী বাংলাদেশ সরকার</div><div>প্রাথমিক শিক্ষা অধিদপ্তর</div><div>উপবৃত্তি বিভাগ</div><div>উপজেলা প্রাথমিক শিক্ষা অফিস</div><div>কচুয়া, চাঁদপুর।</div></div>'
-   +'<div class="rti">উপবৃত্তি বিতরণ কার্যক্রম: বিদ্যালয়ভিত্তিক তথ্য যাচাই প্রতিবেদন</div>'
-   +'<div class="rm">বিদ্যালয়: <b>'+h2e($('sname').value.trim())+'</b> &nbsp;|&nbsp; ক্লাস্টার: <b>'+h2e($('scl').value)+'</b> &nbsp;|&nbsp; উপজেলা: কচুয়া, জেলা: চাঁদপুর &nbsp;|&nbsp; তারিখ: '+ds+'</div>'
-   +q('৮.','চলতি শিক্ষাবর্ষের শিক্ষার্থী ও PESP MIS সফটওয়্যারে ডাটা এন্ট্রি সম্পর্কিত তথ্য (সংখ্যা):')+grid(R8)
+  const nm=h2e($('sname').value.trim()),cl=h2e($('scl').value);
+  const fl=(t,w)=>'<span class="fl" style="min-width:'+w+'px">'+t+'</span>';
+  const e5=n=>'<td></td>'.repeat(n);
+  const u5='<table class="u5"><thead><tr><th>পদ</th><th>ক্লাস্টারের নাম</th><th>PESP MIS সফটওয়্যারে আইডি নম্বর</th><th>PESP MIS সফটওয়্যারে ইউজারের নাম</th><th>মোবাইল নম্বর</th><th>মন্তব্য</th></tr></thead><tbody><tr class="t1"><td class="l">উপজেলা/থানা প্রাথমিক শিক্ষা অফিসার</td><td>-</td>'+e5(4)+'</tr><tr class="t2"><td class="l" rowspan="6">উপজেলা/থানা সহকারী প্রাথমিক শিক্ষা অফিসার<br><br>(কর্মরত:<br>.... জন)</td>'+e5(5)+'</tr>'+('<tr class="t2">'+e5(5)+'</tr>').repeat(5)+'</tbody></table>';
+  const lines=$('sendl').value.split('\n').map(s=>s.trim()).filter(Boolean);
+  const sg='<div class="sg">পরিদর্শনকারীর স্বাক্ষর<br>তারিখ ও সীল</div>';
+  return '<div class="pg"><div class="rhd"><div>গণপ্রজাতন্ত্রী বাংলাদেশ সরকার</div><div>প্রাথমিক শিক্ষা অধিদপ্তর</div><div>উপবৃত্তি বিভাগ</div></div>'
+   +'<div class="bar">প্রাথমিক শিক্ষার জন্য উপবৃত্তি বিতরণ কার্যক্রম বাস্তবায়ন মনিটরিং টুল (উপজেলা/থানা প্রাথমিক শিক্ষা অফিস)</div>'
+   +'<div class="sb">বিদ্যালয়: '+nm+' · ক্লাস্টার: '+cl+'</div>'
+   +'<div class="ln">১. উপজেলা/থানা: '+fl('কচুয়া',150)+', জেলা: '+fl('চাঁদপুর',110)+', বিভাগ: '+fl('',140)+'</div>'
+   +'<div class="ln">২. মোট ক্লাস্টার (সংখ্যা): '+fl('১',50)+' মোট বিদ্যালয় (সংখ্যা): '+fl('১',50)+' বিদ্যালয়ের মোট ইউজার সংখ্যা: '+fl('১',50)+'</div>'
+   +'<div class="ln">৩. পরিদর্শনকারীর নাম: '+fl('',260)+' &nbsp; পদবী : '+fl('',150)+'</div>'
+   +'<div class="ln">৪. পরিদর্শনকারীর মোবাইল নম্বর : '+fl('',240)+' &nbsp; পরিদর্শনের তারিখ: '+fl('',150)+'</div>'
+   +'<div class="ln">৫. ইউজার আইডি সংক্রান্ত তথ্য:</div>'+u5
+   +'<div class="ln" style="margin-top:12px">৬. PESP MIS সফটওয়্যারে উপজেলা/থানা প্রাথমিক শিক্ষা অফিসারের একাধিক সক্রিয় আইডি থাকলে নিষ্ক্রিয়যোগ্য আইডি নম্বর ও নাম উল্লেখ করুন:</div><div class="sp" style="height:70px"></div>'
+   +'<div class="ln">৭. বিদ্যালয়ভিত্তিক অনুমোদিত সুবিধাভোগী শিক্ষার্থীর তালিকা, অনুমোদিত চাহিদা এবং ডিসবার্সমেন্ট রিপোর্ট এর স্বাক্ষরিত কপি উপজেলা/থানা প্রাথমিক শিক্ষা অফিসে সংরক্ষিত আছে কিনা যাচাই করে মন্তব্য লিখুন:</div></div>'
+   +'<div class="pg">'+q('৮.','চলতি শিক্ষাবর্ষের শিক্ষার্থী ও PESP MIS সফটওয়্যারে ডাটা এন্ট্রি সম্পর্কিত তথ্য (সংখ্যা):')+grid(R8)
    +q('৯.','PESP MIS সফটওয়্যারে ডাটা এন্ট্রি না হওয়া শিক্ষার্থীর সংখ্যা:')+row(Q,'q','q7')
-   +'<div class="rq">অন্যান্য কারণসমূহ:</div><div class="box">'+h2e($('s9o').value)+'</div></div>'
-   +'<div class="pg">'+q('১০.','গত কিস্তিতে অনুমোদিত চাহিদা ও উপবৃত্তি বিতরণ সংক্রান্ত তথ্য (সংখ্যা):')+grid(R10)
-   +q('১১.','গত কিস্তিতে উপবৃত্তি না পাওয়া শিক্ষার্থীর কারণভিত্তিক সংখ্যা:')+row(U,'u','u9')
-   +q('১২.','গত ৩ (তিন) অর্থবছরে উপবৃত্তি প্রাপ্ত শিক্ষার্থী ও টাকার পরিমাণ:')+s12
-   +'<div class="sig">প্রধান শিক্ষকের স্বাক্ষর ও সীল<br>তারিখ: '+ds+'</div></div>'}
+   +'<div class="rq">অন্যান্য কারণসমূহ লিখুন (প্রযোজ্য ক্ষেত্রে):</div><div class="box">'+h2e($('s9o').value)+'</div>'
+   +q('১০.','গত কিস্তিতে অনুমোদিত চাহিদা ও উপবৃত্তি বিতরণ সংক্রান্ত তথ্য (সংখ্যা):')+grid(R10)
+   +q('১১.','গত কিস্তিতে উপবৃত্তি না পাওয়া শিক্ষার্থীর কারণভিত্তিক সংখ্যা:')+row(U,'u','u9')+'</div>'
+   +'<div class="pg">'+q('১২.','গত ৩ (তিন) অর্থবছরে উপবৃত্তি প্রাপ্ত শিক্ষার্থী ও টাকার পরিমাণ:')+s12
+   +'<div class="ln">১৩. উপবৃত্তি বিতরণ সংক্রান্ত কোনো অনিয়ম সংঘটিত হয়েছে কিনা? &nbsp;&nbsp;&nbsp;&nbsp; হ্যাঁ / না<br>&nbsp;&nbsp;&nbsp;&nbsp;উত্তর হ্যাঁ হলে তা উল্লেখ করুন:</div><div class="sp" style="height:75px"></div>'
+   +'<div class="ln">১৪. উপবৃত্তি বিতরণ সংক্রান্ত সংঘটিত অনিয়ম এর বিষয়ে কার্যকর পদক্ষেপ গ্রহণ করা হয়েছে কিনা? &nbsp;&nbsp; হ্যাঁ / না / প্রযোজ্য নয়<br>&nbsp;&nbsp;&nbsp;&nbsp;উত্তর ‘হ্যাঁ’ হলে কী ধরনের পদক্ষেপ গ্রহণ করা হয়েছে অথবা উত্তর ‘না’ হলে পদক্ষেপ না নেয়ার কারণ উল্লেখ করুন:</div><div class="sp" style="height:75px"></div>'
+   +'<div class="ln">১৫. সার্বিক মন্তব্য:</div><div class="sp" style="height:130px"></div>'+sg
+   +'<div class="memo"><span>স্মারক নং-'+h2e($('memo').value.trim())+'</span><span>তারিখ: '+fl(h2e($('mdate').value.trim()),150)+'</span></div>'
+   +'<div class="ln ul">'+h2e($('sendh').value.trim())+'</div>'+lines.map((s,i)=>'<div class="sl">'+bn(i+1)+'. '+h2e(s)+'</div>').join('')+sg+'</div>'}
 function fill(){document.querySelectorAll('input[data-k]').forEach(i=>{const v=D[i.dataset.k];i.value=def(v)?bn(v):''});}
 document.addEventListener('input',e=>{const k=e.target.dataset&&e.target.dataset.k;if(k){const s=en(e.target.value).replace(/[^\d]/g,'');D[k]=s===''?undefined:+s;}render()});
 $('clr').onclick=()=>{D={};$('sname').value='';$('scl').value='';fill();render()};
@@ -268,6 +304,14 @@ $('demo').onclick=()=>{
   D['f2.i1s']=100;D['f2.i1a']=85000;D['f2.i2s']=98;D['f2.i2a']=80000;D['f3.i1s']=100;D['f3.i1a']=95000;
   $('sname').value='নমুনা সপ্রাবি (কাল্পনিক)';fill();render();
 };
+const MEMO0='৩৮.০১.০০০০.০০০.',SH0='সদয় অবগতি/কার্যার্থে প্রেরণ করা হলো:',SL0=['পরিচালক (উপবৃত্তি), প্রাথমিক শিক্ষা অধিদপ্তর, মিরপুর-২, ঢাকা-১২১৬','মহাপরিচালকের ব্যক্তিগত সহকারী, প্রাথমিক শিক্ষা অধিদপ্তর (মহাপরিচালক মহোদয়ের সদয় অবগতির জন্য)','অতিরিক্ত মহাপরিচালকের ব্যক্তিগত সহকারী, প্রাথমিক শিক্ষা অধিদপ্তর (অতিরিক্ত মহাপরিচালক মহোদয়ের সদয় অবগতির জন্য)','সংরক্ষণ কপি'];
+const MEMOIDS=['memo','mdate','sendh','sendl'];
+const memoSave=()=>{try{localStorage.setItem('pesp_memo',JSON.stringify(MEMOIDS.map(i=>$(i).value)))}catch(e){}};
+const memoDef=()=>{$('memo').value=MEMO0;$('mdate').value='';$('sendh').value=SH0;$('sendl').value=SL0.join('\n')};
+memoDef();
+try{const m=JSON.parse(localStorage.getItem('pesp_memo'));if(Array.isArray(m)&&m.length===4)MEMOIDS.forEach((i,k)=>{$(i).value=String(m[k])})}catch(e){}
+MEMOIDS.forEach(i=>$(i).addEventListener('input',memoSave));
+$('memoreset').onclick=()=>{memoDef();memoSave()};
 try{const d=JSON.parse(localStorage.getItem('pesp_draft'));if(d){D=d.D||{};$('sname').value=d.n||'';$('scl').value=d.c||'';fill();}}catch(e){}
 $('sname').oninput=$('scl').onchange=render;
 $('prbtn').onclick=()=>{calc();
