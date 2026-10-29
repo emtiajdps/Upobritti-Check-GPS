@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>উপবৃত্তি তথ্য যাচাই</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f2f6f4;--card:#fff;--ink:#1d2b26;--mut:#62726b;--line:#d8e1dc;--g:#0f6b4f;--gl:#e8f4ee;--bad:#b42318;--badbg:#fdecea;--warn:#92400e;--warnbg:#fff4d6;--ok:#15803d;--okbg:#e6f6ea;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#101815;--card:#18231f;--ink:#e6efeb;--mut:#9fb2aa;--line:#2c3d36;--g:#4cc49b;--gl:#1d3329;--bad:#ff8a80;--badbg:#3a1d1a;--warn:#fbbf6a;--warnbg:#3a2e12;--ok:#6fdc8c;--okbg:#17321f;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#101815;--card:#18231f;--ink:#e6efeb;--mut:#9fb2aa;--line:#2c3d36;--g:#4cc49b;--gl:#1d3329;--bad:#ff8a80;--badbg:#3a1d1a;--warn:#fbbf6a;--warnbg:#3a2e12;--ok:#6fdc8c;--okbg:#17321f;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 'Noto Sans Bengali','Kalpurush','Nirmala UI','Siyam Rupali',sans-serif}
+main{max-width:1000px;margin:auto;padding:14px}
+h1{font-size:19px;margin:6px 0}
+h2{font-size:16px;margin:0 0 4px;color:var(--g)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;margin:12px 0}
+.hint{color:var(--mut);font-size:13px;margin:0 0 8px}
+.row2{display:flex;gap:10px;flex-wrap:wrap}
+label{font-size:13px;color:var(--mut);display:block}
+input,select,button{font:inherit;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:8px;padding:7px 9px}
+.wrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:640px}
+th,td{border:1px solid var(--line);padding:4px 6px;text-align:center;font-size:14px}
+th{background:var(--gl);font-weight:600}
+td.l{text-align:left;min-width:190px}
+td.l small{display:block;color:var(--mut);font-size:11.5px;line-height:1.3}
+td input{width:64px;text-align:center;padding:5px}
+.auto{display:inline-block;min-width:44px;font-weight:600;color:var(--g)}
+.na{background:var(--gl);color:var(--mut)}
+.bad{outline:2px solid var(--bad);background:var(--badbg)!important;color:var(--bad)}
+.vlist{display:grid;gap:6px}
+.vr{display:flex;align-items:center;gap:10px;justify-content:space-between;border-bottom:1px dashed var(--line);padding:3px 0}
+.msg{border-radius:10px;padding:8px 12px;margin:6px 0;font-size:14px}
+.msg small{display:block;margin-top:2px;opacity:.9}
+.e{background:var(--badbg);color:var(--bad);border-left:4px solid var(--bad)}
+.w{background:var(--warnbg);color:var(--warn);border-left:4px solid var(--warn)}
+.ok{background:var(--okbg);color:var(--ok);border-left:4px solid var(--ok)}
+button{cursor:pointer}
+button.p{background:var(--g);color:#fff;border-color:var(--g)}
+#rep{display:none}
+@page{size:A4;margin:12mm}
+@media print{
+ :root,:root[data-theme="dark"]{color-scheme:light!important;background:#fff!important;padding:0!important}
+ html,body{background:#fff!important;color:#000!important}
+ body{margin:0!important}
+ main{display:none!important}
+ #rep tr,#rep .rm,#rep .box{page-break-inside:avoid;break-inside:avoid}
+ #rep .rq{page-break-after:avoid;break-after:avoid}
+ #rep{display:block;font-size:11.5px;line-height:1.5}
+ #rep,#rep *{color:#000!important}
+ #rep .pg{page-break-after:always}#rep .pg:last-child{page-break-after:auto}
+ #rep .rhd{text-align:center;font-weight:700;font-size:13px;line-height:1.5}
+ #rep .rti{text-align:center;font-weight:700;margin:8px 0 6px;font-size:13px}
+ #rep .rq{margin:8px 0 4px;font-weight:600}
+ #rep .rm{margin:6px 0;border:1px solid #000;padding:4px 8px}
+ #rep table{width:100%;border-collapse:collapse;margin:3px 0 8px;min-width:0}
+ #rep th,#rep td{border:1px solid #000;padding:3px 4px;font-size:10.5px;text-align:center;vertical-align:middle}
+ #rep th{background:#eee!important;-webkit-print-color-adjust:exact;print-color-adjust:exact;font-weight:700}
+ #rep td.l{text-align:left;min-width:0}
+ #rep .box{border:1px solid #000;min-height:34px;padding:4px 6px;margin:3px 0 8px;white-space:pre-wrap}
+ #rep .sig{margin-top:46px;text-align:right}
+}
+</style>
+</head>
+<body>
+<main>
+<h1>উপবৃত্তি তথ্য যাচাই</h1>
+<p class="hint">সংখ্যা লিখলেই নিচে ভুল ও সংশোধনের উপায় দেখাবে। এই সংস্করণে কিছু জমা বা সংরক্ষণ হয় না; শুধু আপনার ব্রাউজারে খসড়া থাকে।</p>
+
+<div class="card">
+<div class="row2">
+<label>বিদ্যালয়ের নাম<br><input id="sname" placeholder="যেমন: দোঘর সপ্রাবি" size="26"></label>
+<label>ক্লাস্টার<br><select id="scl"><option value="">— বাছুন —</option><option>সদর</option><option>জগতপুর</option><option>রহিমানগর</option><option>মাঝিগাছা</option><option>পালাখাল</option><option>মনোহরপুর</option><option>সাচার</option></select></label>
+</div>
+<p class="hint" style="margin-top:10px">ঘরগুলো ফাঁকা রাখলে সেটি “তথ্য নেই” ধরা হয়; ০ লিখলে শূন্য ধরা হবে। যে ঘর ধূসর, সেটি স্বয়ংক্রিয়, লিখতে হবে না।
+<button id="demo" type="button">কাল্পনিক ভুল তথ্য দিয়ে দেখুন</button> <button id="clr" type="button">সব মুছুন</button></p>
+</div>
+
+<div id="panel" class="card"></div>
+<div class="card"><h2>রিপোর্ট প্রিন্ট</h2><p class="hint" id="prmsg" style="margin:4px 0 8px"></p><button id="prbtn" class="p" type="button" disabled>🖨 রিপোর্ট প্রিন্ট / PDF সেভ</button></div>
+
+<div class="card"><h2>সেকশন ৮: শিক্ষার্থী ও PESP MIS এন্ট্রি</h2><div class="wrap" id="g8"></div></div>
+<div class="card"><h2>সেকশন ৯: MIS-এ এন্ট্রি না হওয়ার কারণ</h2><p class="hint">মোট স্বয়ংক্রিয়, সেকশন ৮-এর “এন্ট্রি না হওয়া” মোটের সমান হতে হবে।</p><div class="vlist" id="g9"></div><label style="margin-top:10px">অন্যান্য কারণসমূহ (প্রযোজ্য হলে, রিপোর্টে ছাপা হবে)<br><textarea id="s9o" rows="2" style="width:100%"></textarea></label></div>
+<div class="card"><h2>সেকশন ১০: গত কিস্তির চাহিদা ও বিতরণ</h2><div class="wrap" id="g10"></div></div>
+<div class="card"><h2>সেকশন ১১: উপবৃত্তি না পাওয়ার কারণ</h2><p class="hint">মোট স্বয়ংক্রিয়, সেকশন ১০-এর “না পাওয়া” মোটের সমান হতে হবে। সবাই পেলে সব ঘর ০।</p><div class="vlist" id="g11"></div></div>
+<div class="card"><h2>সেকশন ১২: গত ৩ অর্থবছরের উপবৃত্তি</h2><p class="hint">জনপ্রতি ৬ মাসের (এক কিস্তির) সর্বোচ্চ উপবৃত্তি ৯০০ টাকা; কম হতে পারে, বেশি নয়। বছরের মোট ও সর্বোচ্চ সম্ভাব্য টাকা স্বয়ংক্রিয়। ২০২৫-২৬ এর ২য় কিস্তির প্রাপ্ত জন সেকশন ১০-এর “উপবৃত্তি প্রাপ্ত” মোটের সমান হবে।</p><div class="wrap" id="g12"></div></div>
+<footer class="card" style="text-align:center;line-height:1.8"><div style="color:var(--mut);font-size:13px">Developed By</div><div style="font-weight:700;color:var(--g)">মোঃ ইমতিয়াজ আহম্মদ</div><div>সহকারী শিক্ষক, দোঘর সপ্রাবি, কচুয়া, চাঁদপুর।</div><div>মোবাইলঃ 01851245934</div><div style="margin-top:10px;padding:8px 12px;border-radius:10px;background:var(--warnbg);color:var(--warn);border-left:4px solid var(--warn);font-size:14px;text-align:left">টিন আইডি খোলা থাকলে অবশ্যই প্রতি অর্থবছরের আয়কর রিটার্ন জমা দেয়া বাধ্যতামূলক। অন্যথায় ৫০০০ টাকা জরিমানা প্রদান করতে হবে। বিস্তারিত জানতে উপরের নম্বরে whatsApp করুন। ( পেইড সার্ভিস)</div></footer>
+</main>
+<section id="rep"></section>
+<script>
+(()=>{
+const BN='০১২৩৪৫৬৭৮৯',bn=s=>String(s).replace(/\d/g,d=>BN[d]),en=s=>String(s).replace(/[০-৯]/g,d=>BN.indexOf(d));
+const CLS=[['p4','প্রাক (৪+)'],['p5','প্রাক (৫+)'],['c1','১ম'],['c2','২য়'],['c3','৩য়'],['c4','৪র্থ'],['c5','৫ম']];
+const S8=[['r1','মোট শিক্ষার্থী (নতুন ভর্তিসহ)','ঐ শ্রেণির বর্তমান মোট ভর্তি'],['r2','শুধু নতুন ভর্তি','এ বছর ভর্তি হয়েছে; মোটের বেশি হবে না'],['r3','MIS-এ নতুন এন্ট্রি','এ বছর MIS-এ নতুন যুক্ত করা'],['r4','MIS-এ শ্রেণি হালনাগাদ','আগে MIS-এ ছিল, এ বছর শ্রেণি বদলানো। নতুন এন্ট্রির সংখ্যা এখানে আবার বসাবেন না'],['r5','MIS-এ মোট'],['r6','MIS-এ এন্ট্রি না হওয়া'],['r7','পুনরাবৃত্ত','প্রাক বাদে',['p4','p5']],['r8','৪০% নম্বর পাননি','২য় থেকে',['p4','p5','c1']],['r9','একই পরিবারের ২+ সন্তান','']];
+const S10=[['t1','অনুমোদিত চাহিদা','জন (টাকা নয়)'],['t2','উপবৃত্তি পেয়েছে','জন'],['t3','উপবৃত্তি পায়নি','']];
+const Q9=['অনলাইন জন্ম নিবন্ধন নেই','মা/বাবার এনআইডি নেই','অভিভাবকের নিজ এনআইডিতে সিম নেই','অভিভাবকের নিজ এনআইডিতে এমএফএস নেই','জন্ম নিবন্ধন আছে, কিন্তু সফটওয়্যারে এন্ট্রি হয়নি','অন্যান্য'];
+const U11=['পুনরাবৃত্ত','৪০% নম্বর পাননি','৮০% উপস্থিতি নেই','২+ সন্তান','সফটওয়্যারে এন্ট্রি করতে পারেনি','মোবাইল নম্বর ভুল/নিষ্ক্রিয়','নম্বর পরিবর্তন/হ্যাক','অন্যান্য'];
+const AUTO=new Set(['r5','r6','t3']);
+let D={};
+const $=id=>document.getElementById(id);
+const g=k=>D[k];
+const def=v=>v!==undefined;
+function mk(id,rows,withAuto){
+  let h='<table><thead><tr><th>বিবরণ</th>'+CLS.map(c=>'<th>'+c[1]+'</th>').join('')+'<th>মোট</th></tr></thead><tbody>';
+  rows.forEach(r=>{h+='<tr><td class="l">'+r[1]+(r[2]?'<small>'+r[2]+'</small>':'')+'</td>';
+    CLS.forEach(c=>{const k=r[0]+'.'+c[0];
+      if(AUTO.has(r[0]))h+='<td><span class="auto" id="a_'+k+'"></span></td>';
+      else if(r[3]&&r[3].includes(c[0]))h+='<td class="na">—</td>';
+      else h+='<td><input inputmode="numeric" data-k="'+k+'" id="i_'+k+'" autocomplete="off"></td>';});
+    h+='<td><b id="t_'+r[0]+'"></b></td></tr>';});
+  $(id).innerHTML=h+'</tbody></table>';
+}
+function vl(id,pre,labels,tot){
+  $(id).innerHTML=labels.map((l,i)=>'<div class="vr"><span>'+l+'</span><input inputmode="numeric" data-k="'+pre+(i+1)+'" id="i_'+pre+(i+1)+'" size="5" style="width:70px;text-align:center"></div>').join('')+'<div class="vr"><b>মোট (স্বয়ংক্রিয়)</b><span class="auto" id="a_'+tot+'"></span></div>';
+}
+mk('g8',S8);mk('g10',S10);vl('g9','q',Q9,'q7');vl('g11','u',U11,'u9');
+const FYS=[['f1','২০২৩-২৪'],['f2','২০২৪-২৫'],['f3','২০২৫-২৬']],MAXP=900;
+(function(){let h='<table><thead><tr><th rowspan="2">অর্থবছর</th><th colspan="2">১ম কিস্তি (জুলাই-ডিসেম্বর)</th><th colspan="2">২য় কিস্তি (জানুয়ারি-জুন)</th><th rowspan="2">বছরে মোট টাকা</th><th rowspan="2">সর্বোচ্চ সম্ভাব্য টাকা</th></tr><tr><th>প্রাপ্ত জন</th><th>টাকা</th><th>প্রাপ্ত জন</th><th>টাকা</th></tr></thead><tbody>';
+FYS.forEach(([f,l])=>{h+='<tr><td>'+l+'</td>'+['i1s','i1a','i2s','i2a'].map(k=>'<td><input inputmode="numeric" data-k="'+f+'.'+k+'" id="i_'+f+'.'+k+'" autocomplete="off" style="width:88px"></td>').join('')+'<td><span class="auto" id="a_'+f+'.tot"></span></td><td><span class="auto" id="a_'+f+'.max"></span></td></tr>'});
+$('g12').innerHTML=h+'</tbody></table>'})();
+const sum=a=>a.some(def)?a.reduce((t,x)=>t+(x||0),0):undefined;
+function calc(){
+  CLS.forEach(([c])=>{
+    const a=g('r3.'+c),b=g('r4.'+c);
+    D['r5.'+c]=(def(a)||def(b))?(a||0)+(b||0):undefined;
+    D['r6.'+c]=(def(g('r1.'+c))&&def(D['r5.'+c]))?g('r1.'+c)-D['r5.'+c]:undefined;
+    D['t3.'+c]=(def(g('t1.'+c))&&def(g('t2.'+c)))?g('t1.'+c)-g('t2.'+c):undefined;
+  });
+  D.q7=sum([1,2,3,4,5,6].map(i=>g('q'+i)));
+  D.u9=sum([1,2,3,4,5,6,7,8].map(i=>g('u'+i)));
+  FYS.forEach(([f])=>{const a=g(f+'.i1a'),b=g(f+'.i2a'),x=g(f+'.i1s'),y=g(f+'.i2s');
+    D[f+'.tot']=(def(a)||def(b))?(a||0)+(b||0):undefined;D[f+'.max']=(def(x)||def(y))?((x||0)+(y||0))*MAXP:undefined});
+}
+const rt=r=>sum(CLS.map(([c])=>g(r+'.'+c)));
+function check(){
+  const M=[];
+  const E=(m,f,cells)=>M.push({l:'e',m,f,cells:cells||[]}),W=(m,f,cells)=>M.push({l:'w',m,f,cells:cells||[]});
+  CLS.forEach(([c,L])=>{
+    const r1=g('r1.'+c),r2=g('r2.'+c),r3=g('r3.'+c),r4=g('r4.'+c),r5=g('r5.'+c),t1=g('t1.'+c),t2=g('t2.'+c);
+    const K=r=>r+'.'+c;
+    if(def(r1)&&def(r5)&&r5>r1)E(L+' শ্রেণি: MIS-এ মোট '+bn(r5)+' জন, অথচ মোট শিক্ষার্থী '+bn(r1)+' জন।','নতুন এন্ট্রি ('+bn(r3||0)+') ও হালনাগাদ ('+bn(r4||0)+') আলাদা গুনুন'+(r3===r4?'; দুটি সারিতে একই সংখ্যা বসেছে, একটি সম্ভবত কপি':(Math.abs((r3||0)-(r4||0))<=2?'; দুই সারির সংখ্যা প্রায় সমান, একই শিক্ষার্থী দুবার গোনা হতে পারে (সম্ভাব্য সঠিক এন্ট্রি '+bn(Math.max(r3||0,r4||0))+')':''))+'।',[K('r1'),K('r3'),K('r4'),K('r5')]);
+    else if(def(r1)&&def(r2)&&def(r4)&&r4>r1-r2)W(L+' শ্রেণি: হালনাগাদ '+bn(r4)+' জন, কিন্তু পুরনো শিক্ষার্থী '+bn(r1-r2)+' জন।','হালনাগাদে শুধু আগে থেকে MIS-এ থাকা শিক্ষার্থী ধরুন।',[K('r4')]);
+    if(def(r1)&&def(r2)&&r2>r1)E(L+' শ্রেণি: নতুন ভর্তি '+bn(r2)+' জন, মোট শিক্ষার্থী '+bn(r1)+' জন।','নতুন ভর্তি মোটের অংশ, তাই মোটের বেশি হতে পারে না। রেজিস্টার দেখুন।',[K('r1'),K('r2')]);
+    [['r7','পুনরাবৃত্ত'],['r8','৪০% নম্বর পাননি'],['r9','২+ সন্তান']].forEach(([r,n])=>{const v=g(K(r));if(def(v)&&def(r1)&&v>r1)E(L+' শ্রেণি: '+n+' '+bn(v)+' জন, মোট শিক্ষার্থী '+bn(r1)+' জন।','এই সারির সংখ্যা মোটের বেশি হতে পারে না; তালিকা মিলিয়ে নিন।',[K(r),K('r1')]);});
+    if(def(t1)&&def(t2)&&t2>t1)E(L+' শ্রেণি: প্রাপ্ত '+bn(t2)+' জন, অনুমোদিত চাহিদা '+bn(t1)+' জন।','বিতরণ রিপোর্ট দেখে দুই সংখ্যা ঠিক করুন; প্রাপ্ত চাহিদার বেশি হতে পারে না।',[K('t1'),K('t2')]);
+    if(def(t1)&&def(r1)&&t1>r1)E(L+' শ্রেণি: চাহিদা '+bn(t1)+', মোট শিক্ষার্থী '+bn(r1)+'।',(t1>=100&&t1>5*r1?'সম্ভবত টাকার অঙ্ক বসেছে (মোটের প্রায় '+bn(Math.round(t1/(r1||1)))+' গুণ); জন সংখ্যা লিখুন।':'চাহিদা জন হিসাবে লিখুন, টাকার অঙ্ক বা টাইপো কি না দেখুন।'),[K('t1'),K('r1')]);
+    else if(def(t1)&&def(r5)&&t1>r5)W(L+' শ্রেণি: চাহিদা '+bn(t1)+' জন, MIS-এ এন্ট্রি '+bn(r5)+' জন।','চাহিদা সাধারণত MIS এন্ট্রির বেশি হয় না; অনুমোদিত তালিকা মিলিয়ে নিন।',[K('t1'),K('r3'),K('r4')]);
+    {
+     if(!def(r5)&&def(t1)&&t1>0&&!(def(r1)&&t1>r1))W(L+' শ্রেণি: চাহিদা '+bn(t1)+' জন, কিন্তু MIS-এ এন্ট্রির সংখ্যা দেওয়া হয়নি।','সেকশন ৮-এর নতুন এন্ট্রি ও হালনাগাদ ঘর পূরণ করুন।',[K('t1'),K('r3'),K('r4')])}
+  });
+  const r6=rt('r6'),t3=rt('t3'),q7=g('q7'),u9=g('u9');
+  const negR6=CLS.some(([c])=>g('r6.'+c)<0),negT3=CLS.some(([c])=>g('t3.'+c)<0);
+  const q=['q1','q2','q3','q4','q5','q6'].map(k=>'i_'+k);
+  if(!negR6&&def(q7)&&def(r6)&&q7!==r6)E('সেকশন ৯-এর মোট '+bn(q7)+', কিন্তু সেকশন ৮-এ এন্ট্রি না হওয়া '+bn(r6)+' জন।','দুটি সমান হতে হবে। MIS তালিকা দেখে সেকশন ৮-এর এন্ট্রি, নয়তো সেকশন ৯-এর কারণ-বণ্টন ঠিক করুন।',q);
+  if(!negT3&&def(u9)&&def(t3)&&u9!==t3)E('সেকশন ১১-এর মোট '+bn(u9)+', কিন্তু সেকশন ১০-এ উপবৃত্তি পায়নি '+bn(t3)+' জন।',t3===0?'সেকশন ১০-এ সবাই পেয়েছে দেখানো হয়েছে। সত্যিই সবাই পেলে সেকশন ১১-র সব ঘর ০ করুন; কেউ না পেলে সেকশন ১০ ঠিক করুন।':'দুটি সমান হতে হবে; বিতরণ রিপোর্ট থেকে না-পাওয়া শিক্ষার্থীর তালিকা মিলিয়ে নিন।',['u1','u2','u3','u4','u5','u6','u7','u8'].map(k=>'i_'+k));
+  [['u1','r7','পুনরাবৃত্ত'],['u2','r8','৪০% নম্বর না পাওয়া'],['u4','r9','২+ সন্তান']].forEach(([u,r,n])=>{const a=g(u),b=rt(r),cl=['i_'+u].concat(CLS.map(([c])=>'i_'+r+'.'+c));
+    if(def(a)&&def(b)&&a!==b)E('“'+n+'”: সেকশন ১১-এ '+bn(a)+' জন, সেকশন ৮-এ '+bn(b)+' জন।','একই নামের দুই সারির সংখ্যা সমান হতে হবে। তালিকা দেখে সঠিক সংখ্যাটি দুই জায়গায় লিখুন।',cl);
+    else if(def(a)!==def(b)&&((a||0)>0||(b||0)>0))W('“'+n+'”: '+(def(a)?'সেকশন ৮-এ সংখ্যা লেখা হয়নি (সেকশন ১১-এ '+bn(a)+' জন)।':'সেকশন ১১-এ সংখ্যা লেখা হয়নি (সেকশন ৮-এ '.concat(bn(b),' জন)।')),'না থাকলে ০ লিখুন; থাকলে দুই জায়গায় একই সংখ্যা দিন।',cl)});
+  if(!negR6&&def(g('u5'))&&def(r6)&&g('u5')>r6)W('“সফটওয়্যারে এন্ট্রি করতে পারেনি” '+bn(g('u5'))+' জন, কিন্তু এন্ট্রি না হওয়া মোট '+bn(r6)+' জন।','এই সংখ্যা এন্ট্রি না হওয়া শিক্ষার্থীর বেশি হতে পারে না।',['i_u5']);
+  const R1=rt('r1'),R5=rt('r5');
+  if(def(R1)&&def(R5)&&R5>R1&&def(q7))W('সারা বিদ্যালয়ে MIS-এ মোট '+bn(R5)+' জন, মোট শিক্ষার্থী '+bn(R1)+' জন।','সেকশন ৯-এর মোট ('+bn(q7)+') সঠিক ধরলে MIS-এ এন্ট্রি হওয়া উচিত প্রায় '+bn(R1-q7)+' জন; নতুন এন্ট্রি ও হালনাগাদ সারি সেই অনুযায়ী ঠিক করুন।');
+  FYS.forEach(([f,l])=>[['i1s','i1a','১ম'],['i2s','i2a','২য়']].forEach(([a,b,L])=>{
+    const s=g(f+'.'+a),m=g(f+'.'+b),cl=['i_'+f+'.'+a,'i_'+f+'.'+b];
+    if(def(s)&&def(m)){
+      if(m>s*MAXP)E(l+' অর্থবছর '+L+' কিস্তি: প্রাপ্ত '+bn(s)+' জনের সর্বোচ্চ '+bn(s*MAXP)+' টাকা হতে পারে, কিন্তু লেখা '+bn(m)+' টাকা।','জনপ্রতি ৬ মাসে সর্বোচ্চ ৯০০ টাকা। বিতরণ রিপোর্ট দেখে জন সংখ্যা বা টাকার অঙ্ক ঠিক করুন।',cl);
+      else if(s>0&&m===0)W(l+' অর্থবছর '+L+' কিস্তি: প্রাপ্ত '+bn(s)+' জন, কিন্তু টাকা ০।','টাকার ঘর মিলিয়ে নিন।',cl);
+    }else if(def(s)!==def(m)&&((s||0)>0||(m||0)>0))W(l+' অর্থবছর '+L+' কিস্তি: জন ও টাকার একটি লেখা হয়নি।','দুটি ঘরই পূরণ করুন (না পেলে ০)।',cl);
+    const R=rt('r1');if(def(s)&&def(R)&&s>R)W(l+' অর্থবছর '+L+' কিস্তি: প্রাপ্ত '+bn(s)+' জন, বর্তমান মোট শিক্ষার্থী '+bn(R)+' জন।','সংখ্যা ঠিক আছে কি না দেখুন (পুরনো বছরে ভর্তি ভিন্ন হতে পারে)।',[cl[0]]);
+  }));
+  {const T2=rt('t2'),F=g('f3.i2s'),cl=['i_f3.i2s'].concat(CLS.map(([c])=>'i_t2.'+c));
+   if(def(T2)&&def(F)&&T2!==F)E('সেকশন ১০-এ উপবৃত্তি প্রাপ্ত '+bn(T2)+' জন, কিন্তু সেকশন ১২-এ ২০২৫-২৬ অর্থবছরের ২য় কিস্তিতে প্রাপ্ত '+bn(F)+' জন।','গত কিস্তি মানে ২০২৫-২৬ এর ২য় কিস্তি, তাই দুই সংখ্যা সমান হতে হবে। বিতরণ রিপোর্ট দেখে ঠিক করুন।',cl);
+   else if(def(T2)!==def(F)&&((T2||0)>0||(F||0)>0))W(def(T2)?'সেকশন ১২-এ ২০২৫-২৬ এর ২য় কিস্তির প্রাপ্ত জন লেখা হয়নি (সেকশন ১০-এ '+bn(T2)+' জন)।':'সেকশন ১০-এ উপবৃত্তি প্রাপ্ত লেখা হয়নি (সেকশন ১২-এ '+bn(F)+' জন)।','দুই জায়গায় একই সংখ্যা দিন।',cl)}
+  const all=r=>CLS.map(([c])=>g(r+'.'+c));
+  const r3=all('r3'),r4=all('r4'),r1=all('r1'),r2=all('r2');
+  if(r3.some(x=>x>0)&&r3.every((x,i)=>x===r4[i]))W('নতুন এন্ট্রি ও হালনাগাদ সারি হুবহু সমান।','সম্ভবত একটি সারি অন্যটি থেকে কপি হয়েছে; MIS থেকে আলাদা গুনুন।',CLS.flatMap(([c])=>['i_r3.'+c,'i_r4.'+c]));
+  if(r1.some(x=>x>0)&&r1.every((x,i)=>x===r4[i]))W('হালনাগাদ সারি মোট শিক্ষার্থী সারির সমান।','নতুন ভর্তি থাকলে সবাই “হালনাগাদ” হতে পারে না।',CLS.map(([c])=>'i_r4.'+c));
+  if([3,4,5,6].every(i=>def(r1[i])&&r1[i]>0&&r1[i]===r2[i]))W('২য় থেকে ৫ম শ্রেণিতে নতুন ভর্তি = মোট শিক্ষার্থী।','এর অর্থ পুরনো কোনো শিক্ষার্থী নেই। সংখ্যা কপি হয়েছে কি না দেখুন।',[3,4,5,6].map(i=>'i_r2.'+CLS[i][0]));
+  return M;
+}
+function tiesHtml(){
+  const T=[],C=(a,b,f)=>def(a)&&def(b)?(f(a,b)?1:0):-1;
+  const r1=rt('r1'),r5=rt('r5'),r6=rt('r6'),t1=rt('t1'),t2=rt('t2'),t3=rt('t3'),q7=g('q7'),u9=g('u9'),u5=g('u5');
+  const P=(t,a,b,c)=>T.push([t,c,def(a)&&def(b)?bn(a)+' ও '+bn(b):'']);
+  P('সেকশন ৮: MIS-এ এন্ট্রি ≤ মোট শিক্ষার্থী',r5,r1,C(r5,r1,(a,b)=>a<=b));
+  const nR=CLS.some(([c])=>g('r6.'+c)<0),nT=CLS.some(([c])=>g('t3.'+c)<0);
+  P('সেকশন ৮ “এন্ট্রি না হওয়া” = সেকশন ৯ মোট',r6,q7,nR?-2:C(r6,q7,(a,b)=>a===b));
+  P('সেকশন ১০ চাহিদা ≤ সেকশন ৮-এ MIS এন্ট্রি',t1,r5,C(t1,r5,(a,b)=>a<=b));
+  P('সেকশন ১০ প্রাপ্ত ≤ চাহিদা',t2,t1,C(t2,t1,(a,b)=>a<=b));
+  P('সেকশন ১০ “পায়নি” = সেকশন ১১ মোট',t3,u9,nT?-2:C(t3,u9,(a,b)=>a===b));
+  [['u1','r7','পুনরাবৃত্ত'],['u2','r8','৪০% নম্বর না পাওয়া'],['u4','r9','২+ সন্তান']].forEach(([u,r,n])=>{const a=g(u),b=rt(r);P('সেকশন ১১ '+n+' = সেকশন ৮',a,b,def(a)&&def(b)?(a===b?1:0):(((a||0)>0||(b||0)>0)?0:-1))});
+  P('সেকশন ১১ এন্ট্রি করতে পারেনি ≤ সেকশন ৮ এন্ট্রি না হওয়া',u5,r6,C(u5,r6,(a,b)=>a<=b));
+  P('সেকশন ১০ প্রাপ্ত = সেকশন ১২ (২০২৫-২৬, ২য় কিস্তি)',t2,g('f3.i2s'),C(t2,g('f3.i2s'),(a,b)=>a===b));
+  let a12=0,b12=0;FYS.forEach(([f])=>[['i1s','i1a'],['i2s','i2a']].forEach(([a,b])=>{const s=g(f+'.'+a),m=g(f+'.'+b);if(def(s)&&def(m)){a12=1;if(m>s*MAXP)b12=1}}));
+  T.push(['সেকশন ১২ প্রতি কিস্তির টাকা ≤ প্রাপ্ত জন × ৯০০',a12?(b12?0:1):-1,'']);
+  return '<div style="margin:6px 0 10px">'+T.map(([t,c,d])=>'<div class="vr"><span>'+t+'</span><span style="font-weight:600;white-space:nowrap;color:'+(c===1?'var(--ok)':c===0?'var(--bad)':'var(--mut)')+'">'+(c===1?'✔ মিলেছে':c===0?'✖ মেলেনি':c===-2?'— আগে ওপরের ঋণাত্মক ঘর ঠিক করুন':'—')+(d&&c>=0?' ('+d+')':'')+'</span></div>').join('')+'</div>'}
+function render(){
+  calc();
+  document.querySelectorAll('.bad').forEach(e=>e.classList.remove('bad'));
+  CLS.forEach(([c])=>['r5','r6','t3'].forEach(r=>{const el=$('a_'+r+'.'+c);if(el)el.textContent=def(g(r+'.'+c))?bn(g(r+'.'+c)):''}));
+  [...S8,...S10].forEach(r=>{const el=$('t_'+r[0]);if(el)el.textContent=def(rt(r[0]))?bn(rt(r[0])):''});
+  $('a_q7').textContent=def(g('q7'))?bn(g('q7')):'';$('a_u9').textContent=def(g('u9'))?bn(g('u9')):'';
+  FYS.forEach(([f])=>['tot','max'].forEach(k=>{const v=g(f+'.'+k);$('a_'+f+'.'+k).textContent=def(v)?bn(v.toLocaleString('en-IN')):''}));
+  const M=check();
+  M.forEach(m=>m.cells.forEach(id=>{const el=$(id)||$(id.replace('i_','a_'));if(el)el.classList.add('bad')}));
+  ['r5','r6','t3'].forEach(r=>CLS.forEach(([c])=>{const v=g(r+'.'+c);if(v<0){const el=$('a_'+r+'.'+c);if(el)el.classList.add('bad')}}));
+  const ne=M.filter(m=>m.l==='e').length,nw=M.length-ne,any=Object.keys(D).some(k=>!AUTO.has(k.split('.')[0])&&k!=='q7'&&k!=='u9'&&def(D[k]));
+  let h='<h2>যাচাইয়ের ফল</h2>'+(any?tiesHtml():'');
+  if(!any)h+='<p class="hint">তথ্য লিখুন; ভুল থাকলে এখানে কারণ ও সংশোধনের উপায় দেখাবে।</p>';
+  else if(!M.length)h+='<div class="msg ok">কোনো অসামঞ্জস্য পাওয়া যায়নি। (এটি শুধু সংখ্যাগুলোর পারস্পরিক মিল; আসল রেকর্ডের সাথে মেলানো আপনার দায়িত্ব।)</div>';
+  else h+='<p class="hint">ভুল: <b>'+bn(ne)+'</b>টি, সতর্কতা: <b>'+bn(nw)+'</b>টি। লাল ভুলগুলো ঠিক করে তারপর তথ্য জমা দিন।</p>'+M.sort((a,b)=>a.l<b.l?-1:1).map(m=>'<div class="msg '+m.l+'">'+(m.l==='e'?'ভুল: ':'সতর্কতা: ')+m.m+'<small>কী করবেন: '+m.f+'</small></div>').join('');
+  $('panel').innerHTML=h;prUI(ne,any);
+  try{localStorage.setItem('pesp_draft',JSON.stringify({D:Object.fromEntries(Object.entries(D).filter(([k])=>document.getElementById('i_'+k))),n:$('sname').value,c:$('scl').value}))}catch(e){}
+}
+const h2e=t=>String(t).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+function prReasons(){
+  const R=[],nm=$('sname').value.trim(),cl=$('scl').value,M=check(),ne=M.filter(m=>m.l==='e').length;
+  const any=Object.keys(D).some(k=>!AUTO.has(k.split('.')[0])&&k!=='q7'&&k!=='u9'&&def(D[k]));
+  if(!any){R.push('কোনো তথ্য লেখা হয়নি। সেকশন ৮ থেকে ১২-এর ঘরগুলো পূরণ করুন।');return R}
+  if(ne)R.push('<b>'+bn(ne)+'টি ভুল</b> আছে। ওপরের “যাচাইয়ের ফল”-এর লাল ভুলগুলো ও লাল চিহ্নিত ঘর ঠিক করুন।');
+  if(!nm)R.push('বিদ্যালয়ের নাম দেওয়া হয়নি।');
+  if(!cl)R.push('ক্লাস্টার বাছা হয়নি।');
+  if(!def(rt('r1')))R.push('সেকশন ৮: “মোট শিক্ষার্থী” ফাঁকা। প্রতিটি শ্রেণির সংখ্যা লিখুন (না থাকলে ০)।');
+  if(!def(g('q7')))R.push('সেকশন ৯: কারণের ঘরগুলো ফাঁকা। না থাকলে সব ঘরে ০ লিখুন।');
+  if(!def(rt('t1')))R.push('সেকশন ১০: “অনুমোদিত চাহিদা” ফাঁকা। প্রতিটি শ্রেণির সংখ্যা লিখুন (না থাকলে ০)।');
+  if(!def(g('u9')))R.push('সেকশন ১১: কারণের ঘরগুলো ফাঁকা। সবাই পেয়ে থাকলে সব ঘরে ০ লিখুন।');
+  return R}
+function showWhy(R){const m=$('prmsg');m.style.color='var(--bad)';m.innerHTML='<b>রিপোর্ট ছাপা যাচ্ছে না, কারণ:</b><ul style="margin:6px 0 0;padding-left:20px">'+R.map(x=>'<li>'+x+'</li>').join('')+'</ul>'}
+function prUI(ne,any){const b=$('prbtn'),m=$('prmsg'),R=prReasons();
+  b.disabled=false;b.style.opacity=R.length?'.6':'1';
+  if(R.length){m.style.color='var(--mut)';m.textContent='এখনো ছাপার জন্য প্রস্তুত নয়। বোতামে চাপ দিলে কারণ দেখাবে।'}
+  else{m.style.color='var(--ok)';m.textContent='✔ যাচাই সম্পন্ন। রিপোর্ট ছাপা যাবে।'}}
+function repHtml(){
+  const v=k=>{const x=D[k];return def(x)?bn(x.toLocaleString('en-IN')):''};
+  const tot=r=>{const x=sum(CLS.map(([c])=>g(r+'.'+c)));return def(x)?bn(x.toLocaleString('en-IN')):''};
+  const th=CLS.map(c=>'<th>'+c[1]+'</th>').join('');
+  const grid=rows=>'<table><thead><tr><th class="l">বিবরণ</th>'+th+'<th>সর্বমোট</th></tr></thead><tbody>'+rows.map(([r,t,x])=>'<tr><td class="l">'+t+'</td>'+CLS.map(([c])=>x&&x.includes(c)?'<td>×</td>':'<td>'+v(r+'.'+c)+'</td>').join('')+'<td>'+tot(r)+'</td></tr>').join('')+'</tbody></table>';
+  const row=(items,pre,total)=>'<table><thead><tr>'+items.map(t=>'<th>'+t+'</th>').join('')+'<th>মোট</th></tr></thead><tbody><tr>'+items.map((t,i)=>'<td>'+v(pre+(i+1))+'</td>').join('')+'<td>'+v(total)+'</td></tr></tbody></table>';
+  const R8=[['r1','মোট শিক্ষার্থী (নতুন ভর্তিকৃতসহ)'],['r2','শুধুমাত্র নতুন ভর্তিকৃত শিক্ষার্থী'],['r3','PESP MIS সফটওয়্যারে নতুন এন্ট্রিকৃত শিক্ষার্থী'],['r4','PESP MIS সফটওয়্যারে শ্রেণি হালনাগাদকৃত শিক্ষার্থী'],['r5','PESP MIS সফটওয়্যারে মোট শিক্ষার্থী (নতুন এন্ট্রি ও হালনাগাদ)'],['r6','PESP MIS সফটওয়্যারে এন্ট্রি না হওয়া শিক্ষার্থী'],['r7','পুনরাবৃত্ত শিক্ষার্থী',['p4','p5']],['r8','গত বার্ষিক পরীক্ষায় প্রতি বিষয়ে ৪০% নম্বর না পাওয়া শিক্ষার্থী',['p4','p5','c1']],['r9','একই পরিবারের ২ এর অধিক সন্তান']];
+  const Q=['অনলাইন জন্ম নিবন্ধন না থাকা','মা/বাবা/উভয়ের এনআইডি না থাকা','অভিভাবকের নিজ এনআইডি দিয়ে সিম রেজিস্ট্রেশন না থাকা','অভিভাবকের নিজ এনআইডি দিয়ে নিবন্ধিত এমএফএস একাউন্ট না থাকা','জন্ম নিবন্ধন থাকা সত্ত্বেও সফটওয়্যারে এন্ট্রি না হওয়া','অন্যান্য কারণ'];
+  const R10=[['t1','গত কিস্তিতে অনুমোদিত চাহিদা'],['t2','গত কিস্তিতে উপবৃত্তি প্রাপ্ত শিক্ষার্থী'],['t3','গত কিস্তিতে উপবৃত্তি না পাওয়া শিক্ষার্থী']];
+  const U=['পুনরাবৃত্ত','গত বার্ষিক পরীক্ষায় প্রতি বিষয়ে ৪০% নম্বর না পাওয়া','মাসিক পাঠ দিবসের ৮০% উপস্থিতি না থাকা','একই পরিবারের ২ এর অধিক সন্তান','সফটওয়্যারে ডাটা এন্ট্রি করতে না পারা','মোবাইল একাউন্ট নম্বর সঠিক/সক্রিয় না থাকা','একাউন্ট নম্বর পরিবর্তন/হ্যাক হওয়া','অন্যান্য'];
+  const s12='<table><thead><tr><th rowspan="2">অর্থবছর</th><th colspan="2">১ম কিস্তি (জুলাই-ডিসেম্বর)</th><th colspan="2">২য় কিস্তি (জানুয়ারি-জুন)</th><th rowspan="2">অর্থবছরে বিতরণকৃত মোট টাকা</th></tr><tr><th>উপবৃত্তি প্রাপ্ত শিক্ষার্থী</th><th>টাকার পরিমাণ</th><th>উপবৃত্তি প্রাপ্ত শিক্ষার্থী</th><th>টাকার পরিমাণ</th></tr></thead><tbody>'+FYS.map(([f,l])=>'<tr><td>'+l+'</td><td>'+v(f+'.i1s')+'</td><td>'+v(f+'.i1a')+'</td><td>'+v(f+'.i2s')+'</td><td>'+v(f+'.i2a')+'</td><td>'+v(f+'.tot')+'</td></tr>').join('')+'</tbody></table>';
+  const t=new Date(),ds=bn(String(t.getDate()).padStart(2,'0')+'/'+String(t.getMonth()+1).padStart(2,'0')+'/'+t.getFullYear());
+  const q=(n,x)=>'<div class="rq">'+n+' '+x+'</div>';
+  return '<div class="pg"><div class="rhd"><div>গণপ্রজাতন্ত্রী বাংলাদেশ সরকার</div><div>প্রাথমিক শিক্ষা অধিদপ্তর</div><div>উপবৃত্তি বিভাগ</div><div>উপজেলা প্রাথমিক শিক্ষা অফিস</div><div>কচুয়া, চাঁদপুর।</div></div>'
+   +'<div class="rti">উপবৃত্তি বিতরণ কার্যক্রম: বিদ্যালয়ভিত্তিক তথ্য যাচাই প্রতিবেদন</div>'
+   +'<div class="rm">বিদ্যালয়: <b>'+h2e($('sname').value.trim())+'</b> &nbsp;|&nbsp; ক্লাস্টার: <b>'+h2e($('scl').value)+'</b> &nbsp;|&nbsp; উপজেলা: কচুয়া, জেলা: চাঁদপুর &nbsp;|&nbsp; তারিখ: '+ds+'</div>'
+   +q('৮.','চলতি শিক্ষাবর্ষের শিক্ষার্থী ও PESP MIS সফটওয়্যারে ডাটা এন্ট্রি সম্পর্কিত তথ্য (সংখ্যা):')+grid(R8)
+   +q('৯.','PESP MIS সফটওয়্যারে ডাটা এন্ট্রি না হওয়া শিক্ষার্থীর সংখ্যা:')+row(Q,'q','q7')
+   +'<div class="rq">অন্যান্য কারণসমূহ:</div><div class="box">'+h2e($('s9o').value)+'</div></div>'
+   +'<div class="pg">'+q('১০.','গত কিস্তিতে অনুমোদিত চাহিদা ও উপবৃত্তি বিতরণ সংক্রান্ত তথ্য (সংখ্যা):')+grid(R10)
+   +q('১১.','গত কিস্তিতে উপবৃত্তি না পাওয়া শিক্ষার্থীর কারণভিত্তিক সংখ্যা:')+row(U,'u','u9')
+   +q('১২.','গত ৩ (তিন) অর্থবছরে উপবৃত্তি প্রাপ্ত শিক্ষার্থী ও টাকার পরিমাণ:')+s12
+   +'<div class="sig">প্রধান শিক্ষকের স্বাক্ষর ও সীল<br>তারিখ: '+ds+'</div></div>'}
+function fill(){document.querySelectorAll('input[data-k]').forEach(i=>{const v=D[i.dataset.k];i.value=def(v)?bn(v):''});}
+document.addEventListener('input',e=>{const k=e.target.dataset&&e.target.dataset.k;if(k){const s=en(e.target.value).replace(/[^\d]/g,'');D[k]=s===''?undefined:+s;}render()});
+$('clr').onclick=()=>{D={};$('sname').value='';$('scl').value='';fill();render()};
+$('demo').onclick=()=>{
+  const A={r1:[0,20,30,28,30,26,24],r2:[0,18,5,3,2,1,0],r3:[0,12,5,3,2,1,0],r4:[0,0,27,30,30,28,26],r7:[,,2,1,0,0,0],r8:[,,,1,0,0,2],r9:[0,0,0,0,0,0,0],t1:[0,12,32,29,30,29,26],t2:[0,12,33,29,30,29,26]};
+  D={};Object.entries(A).forEach(([r,a])=>a.forEach((v,i)=>{if(v!==undefined)D[r+'.'+CLS[i][0]]=v}));
+  [3,2,0,0,0,1].forEach((v,i)=>D['q'+(i+1)]=v);[2,0,1,0,5,0,0,0].forEach((v,i)=>D['u'+(i+1)]=v);
+  D['f2.i1s']=100;D['f2.i1a']=85000;D['f2.i2s']=98;D['f2.i2a']=80000;D['f3.i1s']=100;D['f3.i1a']=95000;
+  $('sname').value='নমুনা সপ্রাবি (কাল্পনিক)';fill();render();
+};
+try{const d=JSON.parse(localStorage.getItem('pesp_draft'));if(d){D=d.D||{};$('sname').value=d.n||'';$('scl').value=d.c||'';fill();}}catch(e){}
+$('sname').oninput=$('scl').onchange=render;
+$('prbtn').onclick=()=>{calc();
+  const R=prReasons();
+  if(R.length){showWhy(R);$('prmsg').scrollIntoView({behavior:'smooth',block:'center'});return}
+  const ua=navigator.userAgent||'',inApp=/FBAN|FBAV|Messenger|Instagram|Line\/|WhatsApp|MiuiBrowser|UCBrowser|; wv\)/i.test(ua);
+  if(typeof window.print!=='function'){showWhy(['এই ব্রাউজারে প্রিন্ট সুবিধা নেই। Chrome ব্রাউজারে ফাইলটি খুলে আবার চেষ্টা করুন।']);return}
+  try{$('rep').innerHTML=repHtml()}catch(e){showWhy(['রিপোর্ট তৈরি করতে সমস্যা হয়েছে ('+h2e(e.message)+')। পেজ রিফ্রেশ করে আবার চেষ্টা করুন।']);return}
+  if(inApp){$('prmsg').style.color='var(--warn)';$('prmsg').textContent='আপনি সম্ভবত অ্যাপের ভেতরের ব্রাউজারে আছেন; এখানে প্রিন্ট ডায়ালগ নাও খুলতে পারে। না খুললে ফাইলটি Chrome-এ খুলে আবার চেষ্টা করুন।'}
+  else{$('prmsg').style.color='var(--ok)';$('prmsg').textContent='প্রিন্ট ডায়ালগ খোলা হচ্ছে… না খুললে ব্রাউজারের পপ-আপ/প্রিন্ট ব্লক চালু আছে কি না দেখুন, অথবা Chrome-এ খুলুন।'}
+  setTimeout(()=>{try{window.print()}catch(e){showWhy(['প্রিন্ট ডায়ালগ খুলতে পারেনি ('+h2e(e.message)+')। Chrome-এ ফাইলটি খুলে আবার চেষ্টা করুন।'])}},150)};
+window.addEventListener('afterprint',()=>{$('rep').innerHTML=''});
+render();
+})();
+</script>
+</body>
+</html>
