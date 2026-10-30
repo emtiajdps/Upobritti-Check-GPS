@@ -136,7 +136,7 @@ function vl(id,pre,labels,tot,auto){
   $(id).innerHTML=labels.map((l,i)=>{const k=pre+(i+1);return '<div class="vr"><span>'+l+'</span>'+(auto&&auto.includes(k)?'<span class="auto" id="a_'+k+'"></span>':'<input inputmode="numeric" data-k="'+k+'" id="i_'+k+'" size="5" style="width:70px;text-align:center">')+'</div>'}).join('')+'<div class="vr"><b>মোট (স্বয়ংক্রিয়)</b><span class="auto" id="a_'+tot+'"></span></div>';
 }
 mk('g8',S8);mk('g10',S10);vl('g9','q',Q9,'q7');vl('g11','u',U11,'u9',['u1','u2','u4','u5']);
-const FYS=[['f1','২০২৩-২৪'],['f2','২০২৪-২৫'],['f3','২০২৫-২৬']],MAXP=900;
+const FYS=[['f1','২০২৩-২৪'],['f2','২০২৪-২৫'],['f3','২০২৫-২৬']],MAXP=950;
 (function(){let h='<table><thead><tr><th rowspan="2">অর্থবছর</th><th colspan="2">১ম কিস্তি (জুলাই-ডিসেম্বর)</th><th colspan="2">২য় কিস্তি (জানুয়ারি-জুন)</th><th rowspan="2">বছরে মোট টাকা</th><th rowspan="2">সর্বোচ্চ সম্ভাব্য টাকা</th></tr><tr><th>প্রাপ্ত জন</th><th>টাকা</th><th>প্রাপ্ত জন</th><th>টাকা</th></tr></thead><tbody>';
 FYS.forEach(([f,l])=>{h+='<tr><td>'+l+'</td>'+['i1s','i1a','i2s','i2a'].map(k=>'<td><input inputmode="numeric" data-k="'+f+'.'+k+'" id="i_'+f+'.'+k+'" autocomplete="off" style="width:88px"></td>').join('')+'<td><span class="auto" id="a_'+f+'.tot"></span></td><td><span class="auto" id="a_'+f+'.max"></span></td></tr>'});
 $('g12').innerHTML=h+'</tbody></table>'})();
